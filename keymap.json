@@ -1,0 +1,106 @@
+// Zed keymap
+[
+  {
+    "context": "Workspace",
+    "bindings": {},
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {},
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "space r d s":  ["task::Spawn", { "task_name": "Deno start"}],
+      "space r d t": ["task::Spawn", { "task_name": "Deno test"}],
+      "space r d v": ["task::Spawn", { "task_name": "Deno verify"}],
+      "space r d f": ["task::Spawn", { "task_name": "Deno fmt"}],
+     // Git
+      "space g h d": "editor::ToggleSelectedDiffHunks",
+      "space g p": "git_panel::ToggleFocus",
+      "space g b": "git::Branch",
+      "space g s": "git::ViewStash",
+
+      // Close file
+      "space q": "pane::CloseActiveItem",
+
+      // Split window
+      "space I": "pane::SplitDown", // Horizontal split (haut/bas)
+      "space i": "pane::SplitRight", // Vertical split (gauche/droite)
+
+      // Buffer navigation
+      "space t": "tab_switcher::Toggle",
+
+      // Toggle soft wrap
+      "space u w": "editor::ToggleSoftWrap",
+
+      // Open markdown preview
+      "space m p": "markdown::OpenPreview",
+      "space m P": "markdown::OpenPreviewToTheSide",
+
+      // Open recent project
+      "space p": "projects::OpenRecent",
+
+      // Search word under cursor
+      "space s w": "pane::DeploySearch",
+
+      // Chat with AI
+      "space a p": "agent::ToggleFocus",
+
+      // Go to file excerpts
+      "space f": "editor::OpenExcerpts",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "space space": "file_finder::Toggle",
+      "space /": "pane::DeploySearch",
+      "space e": "pane::RevealInProjectPanel",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "q": "workspace::ToggleLeftDock",
+      "space e": "workspace::ToggleLeftDock",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "Dock && not_editing",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "space q": "workspace::CloseActiveDock",
+      "space e": "project_panel::ToggleFocus",
+      
+      "space r s":  "task::Spawn"
+   },
+  },
+]
